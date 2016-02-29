@@ -1,0 +1,123 @@
+Introduction
+============
+
+This is release 0.12 of the RWTH Aachen University neural network language
+modeling toolkit.
+
+The documentation is available online at this website:
+
+  http://www-i6.informatik.rwth-aachen.de/web/Software/rwthlm.php
+
+In case you have any questions, comments or contributions, feel free to send an
+email to rwthlm atatatataatt i6.informatik.rwth-aachen.de.
+
+
+Build requirements
+==================
+
+This software requires
+
+(1) C++11-capable compiler (g++ 4.6.3 or 4.8.0, Visual Studio 2012 or 2013)
+
+(2) Boost (version 1.53.0 or 1.55.0)
+
+(3) Fast math libraries, either
+
+      GNU Scientific Library
+
+    or
+
+      Intel Composer XE (version 2013 on Windows, version 13.1 on Linux), in
+      particular, the libraries IPP and MKL (much faster than GSL or ACML),
+
+    or
+
+      AMD ACML (version 5.3.1) and
+      AMD libm (version 3.0.2).
+
+Please note that ...
+
+* any of the above version numbers are versions that are known to work, but a
+  more recent or older version of the same library may work for you as well.
+
+* the Intel compiler itself is not officially supported, only
+  the libraries (Intel Performance Primitives and Intel Math Kernel Library)
+  are required.
+
+
+Building
+========
+
+Building should be simple:
+
+(1) Install Math libraries.
+
+    This depends on your platform. ACML does not offer a CBLAS interface by
+    default, so in case you are using AMD libraries, you need to take care of
+    this yourself. No effort with Intel libraries or GSL.
+
+(2) Compile and install Boost.
+
+    On Linux with gcc, you probably can make use of a precompiled version
+    that is shipped by your favorite Linux distributor.
+
+    If you still need to build Boost on Linux, follow these steps:
+
+      (a) Download and unpack Boost.
+
+      (b) ./bootstrap.sh --with-icu --prefix=/opt/boost/boost_1_55_0
+      
+      (c) time ./b2 -j
+      
+      (d) time ./b2 install
+
+      where the install directory was specified by the --prefix argument.
+
+      (It is recommended to carry out all steps except the final install on a
+      fast hard drive, not a network drive, which will probably tremendously
+      speed up the Boost build process.)
+
+    On Windows, installing Boost is very simple, just follow the included
+    documentation (be sure not to install Boost in a directory whose name
+    contains a blank ...).
+
+(3) Choose GSL/AMD/Intel Makefile and code.
+
+    Depending whether you want to use the GNU Scientific Library, AMD libraries
+    or Intel libraries, copy the Makefile, fast.h and random.h from gsl/, amd/,
+    or intel/ subdirectories to the main directory. Adapt the BOOST, INTEL or
+    ACML and AMDLIBM variables in the Makefile.
+
+    On Windows, you will need the preprocessor option "_VARIADIC_MAX=9". Do not
+    set NDEBUG. Update "Additional Include Directories" with your boost root
+    directory, mkl/include and ipp/include. Change "Additional Library
+    Directories" accordingly, and add
+    "mkl_rt.lib;libiomp5md.lib;ippi.lib;ipps.lib;ippcore.lib" to "Additional
+    Dependencies".
+
+(4) Decide for single or double precision.
+
+    It suffices to change the Real typedef at the beginning of fast.h to either
+    float or double. Note that the test cases will only work with double
+    precision!
+
+(5) make -j
+
+No installation is necessary. You will obtain a single binary "rwthlm" that can
+be used for training, perplexity evaluation, and lattice rescoring.
+
+
+Release Notes
+=============
+
+v0.1:  Initial release
+
+v0.11: We thank Graham Neubig from Nara Institute of Science and Technology,
+       Japan, for adding support for the GNU Scientific Library.
+
+v0.12: We thank Jon Dehdari from Deutsches Forschungszentrum fuer
+       Kuenstliche Intelligenz GmbH, Germany and Xinhui Hu from National
+       Institute of Information and Communications Technology, Japan, for
+       simplifying usage of the Boost library.
+
+For future versions, a speed-up release is planned.

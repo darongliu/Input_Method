@@ -1,0 +1,26 @@
+data.o: data.cc data.h random.h vocabulary.h file.h
+identity.o: identity.cc identity.h function.h fast.h random.h
+main.o: main.cc data.h random.h vocabulary.h gradienttest.h linear.h \
+ fast.h function.h recurrency.h lstm.h sigmoid.h tanh.h output.h \
+ tablelookup.h trainer.h net.h htklatticerescorer.h rescorer.h
+recurrency.o: recurrency.cc fast.h recurrency.h function.h random.h
+softmax.o: softmax.cc fast.h softmax.h function.h random.h
+tanh.o: tanh.cc fast.h tanh.h function.h random.h
+vocabulary.o: vocabulary.cc file.h vocabulary.h
+gradienttest.o: gradienttest.cc gradienttest.h linear.h fast.h function.h \
+ random.h recurrency.h lstm.h sigmoid.h tanh.h output.h vocabulary.h \
+ tablelookup.h trainer.h data.h net.h
+linear.o: linear.cc fast.h linear.h function.h random.h recurrency.h
+output.o: output.cc output.h fast.h function.h random.h vocabulary.h
+sigmoid.o: sigmoid.cc fast.h sigmoid.h function.h random.h
+tablelookup.o: tablelookup.cc fast.h tablelookup.h function.h random.h \
+ recurrency.h
+trainer.o: trainer.cc fast.h identity.h function.h random.h linear.h \
+ recurrency.h output.h vocabulary.h sigmoid.h softmax.h tablelookup.h \
+ tanh.h trainer.h data.h net.h
+net.o: net.cc identity.h function.h fast.h random.h linear.h recurrency.h \
+ lstm.h sigmoid.h tanh.h net.h output.h vocabulary.h softmax.h \
+ tablelookup.h
+htklatticerescorer.o: htklatticerescorer.cc file.h htklatticerescorer.h \
+ fast.h function.h random.h rescorer.h net.h output.h vocabulary.h
+lstm.o: lstm.cc lstm.h function.h fast.h random.h sigmoid.h tanh.h

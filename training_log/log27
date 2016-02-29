@@ -1,0 +1,36 @@
+Reading vocabulary from file '../data/char' ...
+Randomly initializing neural network weights ...
+Reading development data from file '../data/all_chinese_char_seperate_val.ptt.corpus.20140906.txt' ...
+Reading training data from file '../data/all_chinese_char_seperate_train.ptt.corpus.20140906.txt' ...
+Training ...
+Shuffling ... done
+training perplexity = 5853.96
+time = 22.395 seconds
+training perplexity = 5445.05
+time = 20.351 seconds
+training perplexity = 5054.13
+time = 18.283 seconds
+training perplexity = 4598.49
+time = 17.638 seconds
+training perplexity = 4293.15
+time = 18.418 seconds
+training perplexity = 4210.17
+time = 46.797 seconds
+training perplexity = 3963.12
+time = 21.976 seconds
+training perplexity = 3689.47
+time = 14.308 seconds
+training perplexity = 3489.46
+time = 16.740 seconds
+training perplexity = 3338.17
+time = 14.829 seconds
+training perplexity = 3232.53
+time = 20.030 seconds
+training perplexity = 3313.30
+time = 20.408 seconds
+training perplexity = 3314.98
+time = 14.852 seconds
+training perplexity = 3264.48
+time = 16.868 seconds
+training perplexity = 3174.66
+time = 17.728 seconds

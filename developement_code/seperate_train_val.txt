@@ -1,0 +1,3 @@
+#! /bin/bash 
+cat ../data/all_chinese_char_seperate.ptt.corpus.20140906.txt | head -n  1000 > ../data/all_chinese_char_seperate_val.ptt.corpus.20140906.txt 
+cat ../data/all_chinese_char_seperate.ptt.corpus.20140906.txt | tail -n +1000 > ../data/all_chinese_char_seperate_train.ptt.corpus.20140906.txt
